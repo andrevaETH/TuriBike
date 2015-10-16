@@ -8,10 +8,13 @@
     tools:context="ch.ethz.ikg.gis.cycle_zurich.UserProfile">
 
     <GridLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false">
 
         <Spinner
             android:layout_width="wrap_content"
@@ -20,7 +23,8 @@
             android:layout_row="1"
             android:layout_column="0"
             android:touchscreenBlocksFocus="true"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            android:layout_gravity="center_vertical" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +32,8 @@
             android:text="What route do you prefer?"
             android:id="@+id/textView_question"
             android:layout_row="0"
-            android:layout_column="0" />
+            android:layout_column="0"
+            android:layout_gravity="center_vertical" />
 
         <Button
             android:layout_width="wrap_content"
@@ -36,6 +41,7 @@
             android:text="Done"
             android:id="@+id/button_ok"
             android:layout_row="1"
-            android:layout_column="1" />
+            android:layout_column="1"
+            android:layout_gravity="center_vertical" />
     </GridLayout>
 </RelativeLayout>

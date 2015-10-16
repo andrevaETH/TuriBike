@@ -1,7 +1,10 @@
 package ch.ethz.ikg.gis.cycle_zurich;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,10 +44,11 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
+
+
     }
 
-    public void createProfileSpinner()
-    {
+    public void createProfileSpinner() {
         // Create list for values
         List<String> list = new ArrayList<String>();
 
@@ -52,31 +56,31 @@ public class UserProfile extends AppCompatActivity {
         list.add("Direct");
         list.add("Attractive");
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerProf.setAdapter(dataAdapter);
 
     }
 
-    public void storeValue()
-    {
+    public void storeValue() {
         // Predefine string
         String selProf = String.valueOf(spinnerProf.getSelectedItem());
 
         if (selProf.equals("Direct")) {
             this.directRoute = true;
-        }
-        else {
+        } else {
             this.directRoute = false;
         }
 
-        // Go back to Startpage
-        super.onBackPressed();
-    }
+        // Return value
+        Intent resultData = new Intent();
+        resultData.putExtra("userProfile", directRoute);
+        setResult(Activity.RESULT_OK, resultData);
 
-    public boolean getProfile()
-    {
-        return this.directRoute;
+        // Go back to Startpage
+        finish();
     }
 }
+
+

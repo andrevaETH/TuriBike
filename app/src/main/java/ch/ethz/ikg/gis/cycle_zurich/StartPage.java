@@ -17,6 +17,8 @@ import com.google.android.gms.maps.GoogleMap;
 public class StartPage extends AppCompatActivity {
 
     private Button button_startMap, button_startQuestions;
+    private boolean userProfile;
+    int REQUEST_ID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +89,20 @@ public class StartPage extends AppCompatActivity {
     public void button_startQuestionsClicked()
     {
         Intent userProfileIntent = new Intent(this, UserProfile.class);
-        startActivity(userProfileIntent);
 
+        // Start Activity and return the result
+        startActivityForResult(userProfileIntent, REQUEST_ID);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent Data)
+    {
+        // Get values from User Profile
+        if(requestCode == REQUEST_ID)
+        {
+            if(resultCode == RESULT_OK){
+                userProfile = Data.getBooleanExtra("userProfile", userProfile);
+            }
+        }
     }
 
 }

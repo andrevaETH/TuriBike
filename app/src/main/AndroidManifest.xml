@@ -8,6 +8,8 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.example.maptest.permission.MAPS_RECEIVE"/>
 
     <application
         android:allowBackup="true"
@@ -44,7 +46,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ch.ethz.ikg.gis.cycle_zurich.StartPage" />
         </activity>
-        <activity android:name=".UserProfile" >
+        <activity
+            android:name=".UserProfile"
+            android:label="My Profile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StartPage" />
         </activity>
     </application>
 
