@@ -86,6 +86,8 @@ public class StartPage extends AppCompatActivity {
 
     public void button_startQuestionsClicked()
     {
+        Intent userProfileIntent = new Intent(this, UserProfile.class);
+        startActivity(userProfileIntent);
 
     }
 

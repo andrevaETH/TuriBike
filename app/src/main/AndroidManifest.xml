@@ -44,6 +44,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ch.ethz.ikg.gis.cycle_zurich.StartPage" />
         </activity>
+        <activity android:name=".UserProfile" >
+        </activity>
     </application>
 
 </manifest>
