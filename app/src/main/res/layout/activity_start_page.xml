@@ -1,25 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!--Chara: changed whole file-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:fitsSystemWindows="true"
-    tools:context=".StartPage">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/zurich">
 
-    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+    <ImageView
+        android:layout_width="9dp"
+        android:layout_height="282dp"
+        android:id="@+id/pillarImage"
+        android:layout_marginLeft="240dp"
+        android:layout_marginBottom="180dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/pillaricon" />
 
-        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <ImageButton
+        android:layout_width="154dp"
+        android:layout_height="50dp"
+        android:id="@+id/rentABikeButton"
+        android:background="@drawable/rentabikeiconselector"
+        android:layout_marginLeft="163dp"
+        android:layout_marginBottom="395dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
 
-    </android.support.design.widget.AppBarLayout>
+    <ImageButton
+        android:layout_width="154dp"
+        android:layout_height="50dp"
+        android:id="@+id/bikeParkingButton"
+        android:background="@drawable/bikeparkingiconselector"
+        android:layout_marginLeft="163dp"
+        android:layout_marginBottom="340dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
 
-    <include layout="@layout/content_start_page" />
+    <ImageButton
+        android:layout_width="154dp"
+        android:layout_height="50dp"
+        android:id="@+id/pumpingStationButton"
+        android:background="@drawable/pumpingstationiconselector"
+        android:layout_marginLeft="176dp"
+        android:layout_marginBottom="280dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
 
-    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+    <ImageView
+        android:layout_width="222dp"
+        android:layout_height="140dp"
+        android:id="@+id/redBikeImage"
+        android:layout_marginLeft="130dp"
+        android:layout_marginBottom="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/redbikeicon" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="330dp"
+        android:id="@+id/profileButton"
+        android:background="@drawable/profileiconselector"
+        android:layout_marginLeft="57dp"
+        android:layout_marginBottom="34dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="190dp"
+        android:id="@+id/top10DestinationsButton"
+        android:background="@drawable/top10destinationsiconselector"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:id="@+id/offlineMapButton"
+        android:background="@drawable/offlinemapiconselector"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/favouriteButton"
+        android:background="@drawable/favouriteiconselector"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:id="@+id/exitButton"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="7dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>
