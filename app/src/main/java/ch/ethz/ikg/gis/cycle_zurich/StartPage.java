@@ -33,82 +33,58 @@ public class StartPage extends AppCompatActivity {
         //------------------------------------------------------------------------------------------
         //Chara: Commented some parts because the app was crashing... we can remove comments later | 22/10/2015
         //------------------------------------------------------------------------------------------
-        
-        // Add listeners
-//        button_startQuestions.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button_startQuestionsClicked();
-//            }
-//        });
-//
-//        button_startMap.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button_startMapClicked();
-//            }
-//        });
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        // Add listeners
+        button_startQuestions.setOnClickListener(new OnClickListener() {
+           @Override
+            public void onClick(View v) {
+               button_startQuestionsClicked();
+            }
+        });
+
+        button_startMap.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_startMapClicked();
+            }
+       });
+
+
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_start_page, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+   @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_start_page, menu);
+        return true;
+    }
 
-//    public void button_startMapClicked()
-//    {
-//        Intent mapIntent = new Intent(this, MapsActivity.class);
-//        startActivity(mapIntent);
+
+
+    public void button_startMapClicked()
+    {
+        Intent mapIntent = new Intent(this, MapsActivity.class);
+        startActivity(mapIntent);
+
+    }
+
+    public void button_startQuestionsClicked()
+   {
+        Intent userProfileIntent = new Intent(this, UserProfile.class);
+        // Start Activity and return the result
+        startActivityForResult(userProfileIntent, REQUEST_ID);
+    }
 //
-//    }
-//
-//    public void button_startQuestionsClicked()
-//    {
-//        Intent userProfileIntent = new Intent(this, UserProfile.class);
-//
-//        // Start Activity and return the result
-//        startActivityForResult(userProfileIntent, REQUEST_ID);
-//    }
-//
-//    protected void onActivityResult(int requestCode, int resultCode, Intent Data)
-//    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent Data)
+    {
 //        // Get values from User Profile
-//        if(requestCode == REQUEST_ID)
-//        {
-//            if(resultCode == RESULT_OK){
-//                userProfile = Data.getBooleanExtra("userProfile", userProfile);
-//            }
-//        }
-//    }
+       if(requestCode == REQUEST_ID)
+       {
+           if(resultCode == RESULT_OK){
+                userProfile = Data.getBooleanExtra("userProfile", userProfile);
+            }
+        }
+   }
 
 }
 
