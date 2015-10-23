@@ -22,7 +22,7 @@ public class UserProfile extends AppCompatActivity {
 
     // Assign Spinner
     private Spinner spinnerProf;
-    private Button button_ok;
+    private Button button_save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,13 @@ public class UserProfile extends AppCompatActivity {
 
         // Assign spinner and button
         spinnerProf = (Spinner) findViewById(R.id.spinner_profile);
-        button_ok = (Button) findViewById(R.id.button_ok);
+        button_save = (Button) findViewById(R.id.button_save);
 
         // Create Spinner
         createProfileSpinner();
 
         // Add Button listener
-        button_ok.setOnClickListener(new View.OnClickListener() {
+        button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 storeValue();
