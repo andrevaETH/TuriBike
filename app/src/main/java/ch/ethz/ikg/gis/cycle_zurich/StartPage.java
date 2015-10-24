@@ -85,10 +85,10 @@ public class StartPage extends AppCompatActivity {
         // Start Activity and return the result
         startActivityForResult(userProfileIntent, REQUEST_ID);
     }
-//
+
     protected void onActivityResult(int requestCode, int resultCode, Intent Data)
     {
-//        // Get values from User Profile
+        // Get values from User Profile
        if(requestCode == REQUEST_ID)
        {
            if(resultCode == RESULT_OK){

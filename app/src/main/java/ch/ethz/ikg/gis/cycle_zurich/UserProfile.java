@@ -2,6 +2,7 @@ package ch.ethz.ikg.gis.cycle_zurich;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,11 +10,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserProfile extends AppCompatActivity {
+
+    // Declaration section
+    //----------------------------------------------------------------------------------------------
 
     // Create boolean value which declares whether the user likes the direct or more attractive route
     // = true, User prefers direct route
@@ -29,12 +34,16 @@ public class UserProfile extends AppCompatActivity {
     private Button button_save;
     private Button button_exit;
 
+    //----------------------------------------------------------------------------------------------
+    // OnCreate (when the activity is first created)
+    //----------------------------------------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        // Assign spinner and button
+    // Relate to layout elements
+    //----------------------------------------------------------------------------------------------
         spinnerProf = (Spinner) findViewById(R.id.spinner_profile);
         button_home = (Button) findViewById(R.id.homeButton);
         button_back = (Button) findViewById(R.id.backButton);
@@ -44,7 +53,8 @@ public class UserProfile extends AppCompatActivity {
         // Create Spinner
         createProfileSpinner();
 
-        // Add listener
+    // Listeners
+    //----------------------------------------------------------------------------------------------
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +87,9 @@ public class UserProfile extends AppCompatActivity {
 
     }
 
+    //----------------------------------------------------------------------------------------------
+    // Functions
+    //----------------------------------------------------------------------------------------------
     public void createProfileSpinner() {
         // Create list for values
         List<String> list = new ArrayList<String>();
@@ -118,15 +131,20 @@ public class UserProfile extends AppCompatActivity {
         Intent resultData = new Intent();
         resultData.putExtra("userProfile", directRoute);
         setResult(Activity.RESULT_OK, resultData);
+
+        // Toast
+        Context context = getApplicationContext();
+        CharSequence text = "Your profile settings have been saved!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
-    public void button_exitClicked()
-    {
+    public void button_exitClicked() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
     }
 }
-
-
