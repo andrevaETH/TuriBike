@@ -20,9 +20,14 @@ public class UserProfile extends AppCompatActivity {
     // = false, User prefers attractive route
     public boolean directRoute;
 
-    // Assign Spinner
+    // Declare button Spinner
     private Spinner spinnerProf;
+
+    // Declare buttons
+    private Button button_home;
+    private Button button_back;
     private Button button_save;
+    private Button button_exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +36,40 @@ public class UserProfile extends AppCompatActivity {
 
         // Assign spinner and button
         spinnerProf = (Spinner) findViewById(R.id.spinner_profile);
-        button_save = (Button) findViewById(R.id.button_save);
+        button_home = (Button) findViewById(R.id.homeButton);
+        button_back = (Button) findViewById(R.id.backButton);
+        button_save = (Button) findViewById(R.id.saveButton);
+        button_exit = (Button) findViewById(R.id.exitButton);
 
         // Create Spinner
         createProfileSpinner();
 
-        // Add Button listener
+        // Add listener
+        button_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_homeClicked();
+
+            }
+        });
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_backClicked();
+
+            }
+        });
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                storeValue();
+                button_saveClicked();
+
+            }
+        });
+        button_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_exitClicked();
 
             }
         });
@@ -63,7 +92,19 @@ public class UserProfile extends AppCompatActivity {
 
     }
 
-    public void storeValue() {
+    public void button_homeClicked()
+    {
+        Intent intent = new Intent(UserProfile.this,StartPage.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    public void button_backClicked()
+    {
+        onBackPressed();
+    }
+
+    public void button_saveClicked() {
         // Predefine string
         String selProf = String.valueOf(spinnerProf.getSelectedItem());
 
@@ -77,9 +118,14 @@ public class UserProfile extends AppCompatActivity {
         Intent resultData = new Intent();
         resultData.putExtra("userProfile", directRoute);
         setResult(Activity.RESULT_OK, resultData);
+    }
 
-        // Go back to Startpage
-        finish();
+    public void button_exitClicked()
+    {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 }
 
