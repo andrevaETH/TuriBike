@@ -17,6 +17,7 @@ import com.google.android.gms.maps.GoogleMap;
 
 public class StartPage extends AppCompatActivity {
 
+    private Button button_exit;
     private ImageButton button_startMap, button_startQuestions;
     private boolean userProfile;
     int REQUEST_ID = 1;
@@ -26,13 +27,10 @@ public class StartPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
 
-        // Assign Buttons //Chara: changed button id 22/10/2015
+        // Assign Buttons
+        button_exit = (Button) findViewById(R.id.exitButton);
         button_startMap = (ImageButton) findViewById(R.id.top10DestinationsButton);
         button_startQuestions = (ImageButton) findViewById(R.id.profileButton);
-
-        //------------------------------------------------------------------------------------------
-        //Chara: Commented some parts because the app was crashing... we can remove comments later | 22/10/2015
-        //------------------------------------------------------------------------------------------
 
         // Add listeners
         button_startQuestions.setOnClickListener(new OnClickListener() {
@@ -49,6 +47,13 @@ public class StartPage extends AppCompatActivity {
             }
        });
 
+        button_exit.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_exitClicked();
+            }
+        });
+
 
     }
 
@@ -59,13 +64,19 @@ public class StartPage extends AppCompatActivity {
         return true;
     }
 
-
-
     public void button_startMapClicked()
     {
         Intent mapIntent = new Intent(this, MapsActivity.class);
         startActivity(mapIntent);
 
+    }
+
+    public void button_exitClicked()
+    {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 
     public void button_startQuestionsClicked()
@@ -74,10 +85,10 @@ public class StartPage extends AppCompatActivity {
         // Start Activity and return the result
         startActivityForResult(userProfileIntent, REQUEST_ID);
     }
-//
+
     protected void onActivityResult(int requestCode, int resultCode, Intent Data)
     {
-//        // Get values from User Profile
+        // Get values from User Profile
        if(requestCode == REQUEST_ID)
        {
            if(resultCode == RESULT_OK){

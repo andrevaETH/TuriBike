@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cycle_Zurich.iml" filepath="$PROJECT_DIR$/Cycle_Zurich.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gis_lab.iml" filepath="$PROJECT_DIR$/gis_lab.iml" />
     </modules>
   </component>
 </project>
