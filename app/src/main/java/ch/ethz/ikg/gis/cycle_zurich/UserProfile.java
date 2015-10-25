@@ -2,6 +2,7 @@ package ch.ethz.ikg.gis.cycle_zurich;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,9 +62,26 @@ public class UserProfile extends AppCompatActivity {
 
         spinnerProf.setAdapter(dataAdapter);
 
+        //-------------------------
+        // Debugging the route request
+        Location startHere = new Location("me");
+        startHere.setLatitude(47.373144);
+        startHere.setLongitude(8.540718);
+
+        Location endHere = new Location("me");
+        endHere.setLatitude(47.366420);
+        endHere.setLongitude(8.541516);
+
+        // Create Route request
+        CycleRouting TestReq = new CycleRouting();
+        String answer = TestReq.requestDirection(startHere, endHere, false);
+
+        Log.d("myInfo", answer);
+
     }
 
     public void storeValue() {
+
         // Predefine string
         String selProf = String.valueOf(spinnerProf.getSelectedItem());
 
