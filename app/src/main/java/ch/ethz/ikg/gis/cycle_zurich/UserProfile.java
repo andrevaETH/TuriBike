@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,21 +106,20 @@ public class UserProfile extends AppCompatActivity {
 
         spinnerProf.setAdapter(dataAdapter);
 
+
+        //-------------------------------------
+        //-------------HAS TO BE MOVED SOMEWHERE ELSE
         //-------------------------
         // Debugging the route request
-        Location startHere = new Location("me");
-        startHere.setLatitude(47.373144);
-        startHere.setLongitude(8.540718);
+        Location start = new Location("me");
+        start.setLatitude(47.373144);
+        start.setLongitude(8.540718);
 
-        Location endHere = new Location("me");
-        endHere.setLatitude(47.366420);
-        endHere.setLongitude(8.541516);
+        Location end = new Location("me");
+        end.setLatitude(47.366420);
+        end.setLongitude(8.541516);
 
-        // Create Route request
-        CycleRouting TestReq = new CycleRouting();
-        String answer = TestReq.requestDirection(startHere, endHere, false);
 
-        Log.d("myInfo", answer);
 
     }
 

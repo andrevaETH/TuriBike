@@ -1,42 +1,15 @@
 package ch.ethz.ikg.gis.cycle_zurich;
 
 import android.location.Location;
-import android.os.AsyncTask;
-import android.renderscript.ScriptGroup;
-import android.util.JsonReader;
 import android.util.Log;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.GroundOverlay;
-import com.google.android.gms.maps.model.GroundOverlayOptions;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringBufferInputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * Created by Admin on 23.10.2015.
+ * Created by Admin on 08.11.2015.
  */
-// Class for the CycleRouting
-    // INPUT: Coordinates of start and end as well as preference
-public class CycleRouting {
+public class FootRouting {
 
     // Method to calculate the direction from a start Location to end Location with a given
     // preference (false: attractive, true: direct)
-    // Used like a constructor
     public void requestDirection(Location start, Location end, boolean pref) {
 
         // Define String
@@ -54,19 +27,15 @@ public class CycleRouting {
         eLat = end.getLatitude();
         eLong = end.getLongitude();
 
-
         // Create the Request for the REST
-        if (pref)
-        {
+        if (pref) {
             // Direct Route
             RESTURL = "http://www.gis.stadt-zuerich.ch/maps/rest/services/processing/" +
-                    "RoutingVeloDirekt/NAServer/Route/solve?stops=";
-        }
-        else
-        {
+                    "RoutingFusswegDirekt/NAServer/Route/solve?stops=";
+        } else {
             // Attractive Route
             RESTURL = "http://www.gis.stadt-zuerich.ch/maps/rest/services/processing/" +
-                    "RoutingVeloAttraktiv/NAServer/Route/solve?stops=";
+                    "RoutingFusswegAttraktiv/NAServer/Route/solve?stops=";
         }
 
         // Convert double to string
@@ -98,6 +67,7 @@ public class CycleRouting {
 
         // Rest of Request
         // Output format at end
+        // STRING FROM BICYCLE SERVICE
         String RRequest = "&ignoreInvalidLocations=true&accumulateAttributeNames=&" +
                 "impedanceAttributeName=Schnellste&restrictionAttributeNames=&restrictUTurns=" +
                 "esriNFSBAllowBacktrack&useHierarchy=false&returnDirections=true&returnRoutes=true&" +
@@ -106,6 +76,17 @@ public class CycleRouting {
                 "&preserveLastStop=true&useTimeWindows=false&startTime=&outputGeometryPrecision=&" +
                 "outputGeometryPrecisionUnits=esriUnknownUnits&directionsTimeAttributeName=&" +
                 "directionsLengthUnits=esriNAUMeters&f=pjson";
+
+        // STRING FROM PEDESTRIAN SERVICE
+        String FRequest = "&ignoreInvalidLocations=true&accumulateAttributeNames=&" +
+                "impedanceAttributeName=Length&restrictionAttributeNames=&restrictUTurns=" +
+                "esriNFSBAllowBacktrack&useHierarchy=false&returnDirections=false&returnRoutes=true&" +
+                "returnStops=false&returnBarriers=false&directionsLanguage=en_UK&outputLines=" +
+                "esriNAOutputLineTrueShapeWithMeasure&findBestSequence=false&preserveFirstStop=true" +
+                "&preserveLastStop=true&useTimeWindows=false&startTime=&outputGeometryPrecision=&" +
+                "outputGeometryPrecisionUnits=esriUnknownUnits&directionsTimeAttributeName=&" +
+                "directionsLengthUnits=esriNAUMeters&f=pjson";
+
 
         // Append Rest
         RESTURL = RESTURL.concat(RRequest);
@@ -117,6 +98,6 @@ public class CycleRouting {
         Routing route = new Routing();
         route.execute(RESTURL);
 
-    }
 
+    }
 }
