@@ -1,4 +1,4 @@
-package ch.ethz.ikg.gis.cycle_zurich;
+package ch.ethz.ikg.gis.cyclezurich;
 
 import android.location.Location;
 import android.util.Log;

@@ -1,31 +1,9 @@
-package ch.ethz.ikg.gis.cycle_zurich;
+package ch.ethz.ikg.gis.cyclezurich;
 
 import android.location.Location;
-import android.os.AsyncTask;
-import android.renderscript.ScriptGroup;
-import android.util.JsonReader;
 import android.util.Log;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.GroundOverlay;
-import com.google.android.gms.maps.model.GroundOverlayOptions;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringBufferInputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Admin on 23.10.2015.

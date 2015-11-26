@@ -1,4 +1,4 @@
-package ch.ethz.ikg.gis.cycle_zurich;
+package ch.ethz.ikg.gis.cyclezurich;
 
 import org.junit.Test;
 

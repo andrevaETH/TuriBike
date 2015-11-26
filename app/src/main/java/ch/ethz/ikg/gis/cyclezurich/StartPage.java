@@ -1,24 +1,20 @@
-package ch.ethz.ikg.gis.cycle_zurich;
+package ch.ethz.ikg.gis.cyclezurich;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.android.gms.maps.GoogleMap;
+
 
 public class StartPage extends AppCompatActivity {
 
     private Button button_exit;
-    private ImageButton button_startMap, button_startQuestions;
+    private ImageButton button_startMap, button_startQuestions,  button_top10Destinations;
     private boolean userProfile;
     int REQUEST_ID = 1;
 
@@ -29,14 +25,15 @@ public class StartPage extends AppCompatActivity {
 
         // Assign Buttons
         button_exit = (Button) findViewById(R.id.exitButton);
-        button_startMap = (ImageButton) findViewById(R.id.top10DestinationsButton);
+        button_top10Destinations = (ImageButton) findViewById(R.id.top10DestinationsButton);
         button_startQuestions = (ImageButton) findViewById(R.id.profileButton);
+        button_startMap = (ImageButton) findViewById(R.id.offlineMapButton);
 
         // Add listeners
         button_startQuestions.setOnClickListener(new OnClickListener() {
-           @Override
+            @Override
             public void onClick(View v) {
-               button_startQuestionsClicked();
+                button_startQuestionsClicked();
             }
         });
 
@@ -45,7 +42,7 @@ public class StartPage extends AppCompatActivity {
             public void onClick(View v) {
                 button_startMapClicked();
             }
-       });
+        });
 
         button_exit.setOnClickListener(new OnClickListener() {
             @Override
@@ -54,10 +51,17 @@ public class StartPage extends AppCompatActivity {
             }
         });
 
+        button_top10Destinations.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_top10DestinationsClicked();
+            }
+        });
 
     }
 
-   @Override
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_page, menu);
@@ -84,6 +88,12 @@ public class StartPage extends AppCompatActivity {
         Intent userProfileIntent = new Intent(this, UserProfile.class);
         // Start Activity and return the result
         startActivityForResult(userProfileIntent, REQUEST_ID);
+    }
+
+    public void button_top10DestinationsClicked()
+    {
+        Intent mapIntent = new Intent(this, DestinationActivity.class);
+        startActivity(mapIntent);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent Data)

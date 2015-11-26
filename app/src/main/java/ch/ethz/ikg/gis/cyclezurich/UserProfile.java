@@ -1,15 +1,11 @@
-package ch.ethz.ikg.gis.cycle_zurich;
+package ch.ethz.ikg.gis.cyclezurich;
 
 import android.app.Activity;
-import android.content.Intent;
-<<<<<<< HEAD
-import android.location.Location;
-=======
 import android.content.Context;
->>>>>>> 73a7827a037bda6eb29114ab1fd54685ecbdf382
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -107,28 +103,29 @@ public class UserProfile extends AppCompatActivity {
 
         spinnerProf.setAdapter(dataAdapter);
 
+
+        //-------------------------------------
+        //-------------HAS TO BE MOVED SOMEWHERE ELSE
         //-------------------------
         // Debugging the route request
-        Location startHere = new Location("me");
-        startHere.setLatitude(47.373144);
-        startHere.setLongitude(8.540718);
+        Location start = new Location("me");
+        start.setLatitude(47.373144);
+        start.setLongitude(8.540718);
 
-        Location endHere = new Location("me");
-        endHere.setLatitude(47.366420);
-        endHere.setLongitude(8.541516);
+        Location end = new Location("me");
+        end.setLatitude(47.366420);
+        end.setLongitude(8.541516);
 
-        // Create Route request
-        CycleRouting TestReq = new CycleRouting();
-        String answer = TestReq.requestDirection(startHere, endHere, false);
+        CycleRouting route = new CycleRouting();
+        route.requestDirection(start, end, false);
 
-        Log.d("myInfo", answer);
+        BikeParking spaces = new BikeParking();
+        spaces.requestParkingSpaces();
+
+
 
     }
 
-<<<<<<< HEAD
-    public void storeValue() {
-
-=======
     public void button_homeClicked()
     {
         Intent intent = new Intent(UserProfile.this,StartPage.class);
@@ -142,7 +139,6 @@ public class UserProfile extends AppCompatActivity {
     }
 
     public void button_saveClicked() {
->>>>>>> 73a7827a037bda6eb29114ab1fd54685ecbdf382
         // Predefine string
         String selProf = String.valueOf(spinnerProf.getSelectedItem());
 

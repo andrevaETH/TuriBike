@@ -1,4 +1,4 @@
-package ch.ethz.ikg.gis.cycle_zurich;
+package ch.ethz.ikg.gis.cyclezurich;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -11,15 +11,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by Admin on 08.11.2015.
+ * Created by Admin on 14.11.2015.
  */
-// Class which can be used for Routing requests
-    // INPUT: URL as a String
-    // OUTPUT: Resulting route as a String (JSON coded)
-public class Routing extends AsyncTask<String, Void, String> {
+public class WFSRequest extends AsyncTask<String, Void, String> {
 
     @Override
-    public String doInBackground(String... urls) {
+    protected String doInBackground(String... urls) {
 
         URL url;
 
@@ -37,6 +34,8 @@ public class Routing extends AsyncTask<String, Void, String> {
             return e.getMessage();
         }
 
+        Log.d("myInfo", url.toString());
+
         InputStream input;
 
         // Try to connect
@@ -52,15 +51,17 @@ public class Routing extends AsyncTask<String, Void, String> {
         // Convert to StringBuilder
         String result = convertStreamToString(input);
 
+        int length = result.length();
+
         // Return result
         Log.d("myInfo", result);
+        Log.d("myInfo", Integer.toString(length));
         return result;
     }
 
     @Override
     protected void onPostExecute(String res) {
-        // Probably needed to iterate over all points and draw them separately...
-        //GroundOverlay route = map.addGroundOverlay( );
+        // Overlay the data
         Log.d("myInfo", "postexec");
 
     }
