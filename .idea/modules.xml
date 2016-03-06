@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cycle_Zurich.iml" filepath="$PROJECT_DIR$/Cycle_Zurich.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TuriBike_GakiLagouVanoncini_V2.iml" filepath="$PROJECT_DIR$/TuriBike_GakiLagouVanoncini_V2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/svg-android/libs_svg-android.iml" filepath="$PROJECT_DIR$/libs/svg-android/libs_svg-android.iml" />
     </modules>
   </component>
 </project>

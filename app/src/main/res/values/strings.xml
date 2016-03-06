@@ -64,7 +64,18 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-
+    
+    <!--<string name="pumpingStationURL">http://www.gis.stadt-zuerich.ch/maps/services/wms/WMS-ZH-STZH-OGD/MapServer/WFSServer?rest/services/SERVICE=WFS&amp;REQUEST=GetFeature&amp;TypeName=ogdzurich:Velopumpstation&amp;srsName=EPSG:4326&amp;bbox=8.4883594244419118,47.348894914602823,8.598047205467152,47.415271739277578</string>-->
+    <!--<string name="pumpingStationURL">http://services1.arcgis.com/i9MtZ1vtgD3gTnyL/ArcGIS/rest/services/buildings5/FeatureServer/0</string>-->
+    <string name="pumpingStationURL">http://services1.arcgis.com/i9MtZ1vtgD3gTnyL/arcgis/rest/services/MyMapService/FeatureServer/1</string>
+    <string name="basemapURL">http://www.gis.stadt-zuerich.ch/maps/services/wms/WMS-ZH-STZH-OGD/MapServer/WMSServer?VERSION=1.3.0&amp;REQUEST=GetMap&amp;CRS=EPSG:21781&amp;Styles=&amp;FORMAT=image/png&amp;BGCOLOR=0xFFFFFF&amp;TRANSPARENT=FALSE&amp;bbox=676000,241000,690000,255000&amp;WIDTH=800&amp;HEIGHT=800&amp;Layers=Stadtplan</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="btn_edit_apply">Apply</string>
+    <string name="btn_edit_discard">Discard</string>
+    <!-- service urls -->
+    <string name="basemap">http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer</string>
+    <string name="operational_layer">http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Petroleum/KSFields/MapServer</string>
+    <string name="feature_layer">http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Petroleum/KSFields/FeatureServer/0</string>
 </resources>

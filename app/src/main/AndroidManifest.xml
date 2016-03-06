@@ -9,11 +9,13 @@
     -->
 
     <uses-sdk android:minSdkVersion="17"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="22" />
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -44,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="ch.ethz.ikg.gis.cyclezurich.MapsActivity"
             android:label="@string/title_activity_maps" >
@@ -58,6 +61,29 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ch.ethz.ikg.gis.cyclezurich.StartPage" />
         </activity>
+        <activity
+            android:name="ch.ethz.ikg.gis.cyclezurich.PumpingStation"
+            android:label="Pumping Stations">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ch.ethz.ikg.gis.cyclezurich.StartPage" />
+        </activity>
+        <activity
+            android:name="ch.ethz.ikg.gis.cyclezurich.RentalStation"
+            android:label="Rental Stations">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ch.ethz.ikg.gis.cyclezurich.StartPage" />
+        </activity>
+        <activity
+            android:name="ch.ethz.ikg.gis.cyclezurich.BikeParking"
+            android:label="Bike parking spaces">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ch.ethz.ikg.gis.cyclezurich.StartPage" />
+        </activity>
+
+
     </application>
 
 </manifest>

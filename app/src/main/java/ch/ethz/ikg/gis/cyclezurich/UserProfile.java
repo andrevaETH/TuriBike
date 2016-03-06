@@ -16,23 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserProfile extends AppCompatActivity {
-
-    // Declaration section
     //----------------------------------------------------------------------------------------------
-
-    // Create boolean value which declares whether the user likes the direct or more attractive route
-    // = true, User prefers direct route
-    // = false, User prefers attractive route
+    // Declaration variables
+    //----------------------------------------------------------------------------------------------
     public boolean directRoute;
-
-    // Declare button Spinner
     private Spinner spinnerProf;
-
-    // Declare buttons
     private Button button_home;
     private Button button_back;
     private Button button_save;
     private Button button_exit;
+    public static int selectedRouteidentification;
 
     //----------------------------------------------------------------------------------------------
     // OnCreate (when the activity is first created)
@@ -50,7 +43,8 @@ public class UserProfile extends AppCompatActivity {
         button_save = (Button) findViewById(R.id.saveButton);
         button_exit = (Button) findViewById(R.id.exitButton);
 
-        // Create Spinner
+    // Create Spinner
+     //----------------------------------------------------------------------------------------------
         createProfileSpinner();
 
     // Listeners
@@ -83,49 +77,25 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     //----------------------------------------------------------------------------------------------
-    // Functions
+    // Methods
     //----------------------------------------------------------------------------------------------
+
+    //create spinner
     public void createProfileSpinner() {
         // Create list for values
         List<String> list = new ArrayList<String>();
-
         // Add items
         list.add("Direct");
         list.add("Attractive");
-
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         spinnerProf.setAdapter(dataAdapter);
-
-
-        //-------------------------------------
-        //-------------HAS TO BE MOVED SOMEWHERE ELSE
-        //-------------------------
-        // Debugging the route request
-        Location start = new Location("me");
-        start.setLatitude(47.373144);
-        start.setLongitude(8.540718);
-
-        Location end = new Location("me");
-        end.setLatitude(47.366420);
-        end.setLongitude(8.541516);
-
-        CycleRouting route = new CycleRouting();
-        route.requestDirection(start, end, false);
-
-        BikeParking spaces = new BikeParking();
-        spaces.requestParkingSpaces();
-
-
-
     }
 
+    // Home button functionality
     public void button_homeClicked()
     {
         Intent intent = new Intent(UserProfile.this,StartPage.class);
@@ -133,20 +103,27 @@ public class UserProfile extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Back button functionality
     public void button_backClicked()
     {
         onBackPressed();
     }
 
+    // Save button functionality
     public void button_saveClicked() {
         // Predefine string
         String selProf = String.valueOf(spinnerProf.getSelectedItem());
 
         if (selProf.equals("Direct")) {
             this.directRoute = true;
+            selectedRouteidentification=1;
+            Toast.makeText(getApplicationContext(), "Direct road was selected.", Toast.LENGTH_LONG).show();
         } else {
             this.directRoute = false;
+            selectedRouteidentification=0;
+            Toast.makeText(getApplicationContext(), "Attractive road was selected.", Toast.LENGTH_LONG).show();
         }
+
 
         // Return value
         Intent resultData = new Intent();
@@ -162,6 +139,7 @@ public class UserProfile extends AppCompatActivity {
         toast.show();
     }
 
+    // Exit button functionality
     public void button_exitClicked() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

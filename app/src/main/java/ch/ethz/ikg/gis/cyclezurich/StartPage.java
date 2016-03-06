@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 
-
+/**
+ * StartPage is the gateway of the app. The user can be transferred to a specific activity by
+ * clicking on the corresponding imagebutton.
+ */
 public class StartPage extends AppCompatActivity {
-
+    // Declare variables
     private Button button_exit;
-    private ImageButton button_startMap, button_startQuestions,  button_top10Destinations;
+    private ImageButton button_startMap, button_startQuestions,  button_top10Destinations, button_pumpingStation, button_rentalStation, button_bikeParking;
     private boolean userProfile;
     int REQUEST_ID = 1;
 
@@ -28,6 +31,9 @@ public class StartPage extends AppCompatActivity {
         button_top10Destinations = (ImageButton) findViewById(R.id.top10DestinationsButton);
         button_startQuestions = (ImageButton) findViewById(R.id.profileButton);
         button_startMap = (ImageButton) findViewById(R.id.offlineMapButton);
+        button_pumpingStation = (ImageButton) findViewById(R.id.pumpingStationButton);
+        button_rentalStation = (ImageButton) findViewById(R.id.rentABikeButton);
+        button_bikeParking = (ImageButton) findViewById(R.id.bikeParkingButton);
 
         // Add listeners
         button_startQuestions.setOnClickListener(new OnClickListener() {
@@ -58,7 +64,30 @@ public class StartPage extends AppCompatActivity {
             }
         });
 
+        button_pumpingStation.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_pumpingStationClicked();
+            }
+        });
+
+        button_rentalStation.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_rentalStationClicked();
+            }
+        });
+
+        button_bikeParking.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_bikeParkingClicked();
+            }
+        });
+
     }
+
+
 
 
     @Override
@@ -67,6 +96,7 @@ public class StartPage extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_start_page, menu);
         return true;
     }
+    // Methods for clicked buttons
 
     public void button_startMapClicked()
     {
@@ -93,6 +123,22 @@ public class StartPage extends AppCompatActivity {
     public void button_top10DestinationsClicked()
     {
         Intent mapIntent = new Intent(this, DestinationActivity.class);
+        startActivity(mapIntent);
+    }
+
+    public void button_pumpingStationClicked()
+    {
+        Intent mapIntent = new Intent(this, PumpingStation.class);
+        startActivity(mapIntent);
+    }
+
+    private void button_rentalStationClicked() {
+        Intent mapIntent = new Intent(this, RentalStation.class);
+        startActivity(mapIntent);
+    }
+
+    private void button_bikeParkingClicked() {
+        Intent mapIntent = new Intent(this, BikeParking.class);
         startActivity(mapIntent);
     }
 

@@ -6,7 +6,6 @@ import java.io.FilenameFilter;
 
 /**
  *This class implements a filter in the files so as to identify only files with the extension .kml
- * @author Ariadni Gaki
  *
  */
 public class FilterFileExtension implements FilenameFilter {
